@@ -2031,11 +2031,11 @@ progress {
   height: 1.5em;
 }
 .form-control::-moz-placeholder {
-  color: #6c757d;
+  color: #313336;
   opacity: 1;
 }
 .form-control::placeholder {
-  color: #6c757d;
+  color: #313336;
   opacity: 1;
 }
 .form-control:disabled {
@@ -10857,7 +10857,7 @@ textarea {
 }
 
 .pd-form .form-control::-webkit-input-placeholder {
-  color: #fff;
+  color: #313336;
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
