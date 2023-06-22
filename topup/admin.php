@@ -2,6 +2,7 @@
   ob_start();
   if(isset($_POST["sumbit"])){
     if($_POST["secret"] == "Rahasia"){
+        setcookie("admin","admin", time()+600);
         header("location:pesanan.php");
     } else {
         echo "<script> alert('Salah Wlee'); </script>";

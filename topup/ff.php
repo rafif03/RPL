@@ -290,7 +290,7 @@ function insert($data){
   $Method = htmlspecialchars($_POST["metode"]);
   $HP = htmlspecialchars($_POST["HP"]);
   $Email = htmlspecialchars($_POST["Email"]);
-  $query = "INSERT INTO game(game, nick, IDUser, Server, IDItem, metode, mobile, email, Status) VALUES ('Mobile Legends', '$Nick', '$ID', '$Server', '$Product', '$Method', '$HP', '$Email', 'Pending')";
+  $query = "INSERT INTO game(game, nick, IDUser, Server, IDItem, metode, mobile, email, Status) VALUES ('Free Fire', '$Nick', '$ID', '$Server', '$Product', '$Method', '$HP', '$Email', 'Pending')";
   mysqli_query($conn, $query);
   $result = mysqli_query($conn, "SELECT id FROM game ORDER BY id DESC LIMIT 1");
   $row = mysqli_fetch_array($result);

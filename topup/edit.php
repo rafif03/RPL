@@ -1,3 +1,30 @@
+<?php
+    ob_start();
+    function query($id){
+        $conn = mysqli_connect("localhost", "root","","topup");
+        $rows = mysqli_query($conn, "SELECT * FROM game WHERE game.id = $id");
+        return $rows;
+    }
+
+    $rows = mysqli_fetch_array(query($_GET["id"]));
+
+    if(isset($_POST["submit"])){
+        update($_POST["submit"]);
+    }
+    function update($data){
+        $conn = mysqli_connect("localhost", "root","","topup");
+        $Nick = htmlspecialchars($_POST["Nick"]);
+        $IDUser = htmlspecialchars($_POST["IDUser"]);
+        $Server = htmlspecialchars($_POST["Server"]);
+        $IDItem = htmlspecialchars($_POST["IDItem"]);
+        $Method = htmlspecialchars($_POST["metode"]);
+        $Status = htmlspecialchars($_POST["Status"]);
+        $id = $_GET["id"];
+        $query = "UPDATE game SET Nick='$Nick', IDUser='$IDUser', Server='$Server', IDItem='$IDItem', metode='$Method', Status='$Status' WHERE id=$id";
+        mysqli_query($conn, $query);
+        header("Location:pesanan.php");
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,17 +58,12 @@
         <!-- Header-->
         <header class="bg-body py-5">
             <div class="container px-4 px-lg-5 my-5 edit-form">
-                <form>
+                <form method="post">
                     <div class="row">
                         <div class="col-4"><h4 class="text-white">Game</h4></div>
                         <div class="col-6">
-                            <div class="input-group input-group-lg mb-3">
-                                <select class="custom-select" id="inputGroupSelect01">
-                                <option value="ML">Mobile Legends</option>
-                                <option value="GI">Genshin Impact</option>
-                                <option value="FF">Free Fire</option>
-                                <option value="PUBG">PUBG Mobile</option>
-                                </select>
+                        <div class="input-group input-group-sm mb-3">
+                                <input class="form-control xs" id="ex1" type="text" value="<?= $rows["game"]?>" disabled>
                             </div>
                         </div>
                     </div>
@@ -50,7 +72,7 @@
                         <div class="col-4"><h4 class="text-white">Nick</h4></div>
                         <div class="col-6">
                             <div class="input-group input-group-sm mb-3">
-                                <input class="form-control xs" id="ex1" type="text">
+                                <input class="form-control xs" name="Nick" id="ex1" type="text" value="<?= $rows["Nick"]?>">
                             </div>
                         </div>
                     </div>
@@ -58,7 +80,7 @@
                         <div class="col-4"><h4 class="text-white">ID</h4></div>
                         <div class="col-6">
                             <div class="input-group input-group-sm mb-3">
-                                <input class="form-control xs" id="ex1" type="text">
+                                <input class="form-control xs" name="IDUser" id="ex1" type="text" value="<?= $rows["IDUser"]?>">
                             </div>
                         </div>
                     </div>
@@ -66,23 +88,15 @@
                         <div class="col-4"><h4 class="text-white">Server</h4></div>
                         <div class="col-6">
                             <div class="input-group input-group-sm mb-3">
-                                <input class="form-control xs" id="ex1" type="text">
+                                <input class="form-control xs" name="Server" id="ex1" type="text" value="<?= $rows["Server"]?>">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-4"><h4 class="text-white">Item</h4></div>
+                        <div class="col-4"><h4 class="text-white">ID Item (1-31)</h4></div>
                         <div class="col-6">
                             <div class="input-group input-group-sm mb-3">
-                                <input class="form-control xs" id="ex1" type="text">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4"><h4 class="text-white">Harga</h4></div>
-                        <div class="col-6">
-                            <div class="input-group input-group-sm mb-3">
-                                <input class="form-control xs" id="ex1" type="text">
+                                <input class="form-control xs" name="IDItem" id="ex1" value="<?= $rows["IDItem"]?>" type="text">
                             </div>
                         </div>
                     </div>
@@ -90,7 +104,7 @@
                         <div class="col-4"><h4 class="text-white">Metode</h4></div>
                         <div class="col-6">
                             <div class="input-group input-group-sm mb-3">
-                                <input class="form-control xs" id="ex1" type="text">
+                                <input class="form-control xs" name="metode" id="ex1" value="<?= $rows["metode"]?>" type="text">
                             </div>
                         </div>
                     </div>
@@ -98,16 +112,16 @@
                         <div class="col-4"><h4 class="text-white">Status</h4></div>
                         <div class="col-6">
                             <div class="input-group input-group-lg mb-3">
-                                <select class="custom-select" id="inputGroupSelect01">
-                                <option value="1">Pending</option>
-                                <option value="2">In Progress</option>
-                                <option value="3">Done</option>
+                                <select class="custom-select" id="inputGroupSelect01" name="Status" value="<?= $rows["Status"]?>">
+                                <option value="Pending">Pending</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Done">Done</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <button class="btn btn-login" type="submit">Kirim</button>
+                        <button class="btn btn-login" name="submit" type="submit">Kirim</button>
                     </div>
                 </form>
             </div>
@@ -132,3 +146,6 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+<?php
+
+?>

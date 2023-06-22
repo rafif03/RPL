@@ -1,5 +1,9 @@
 <?php
     ob_start();
+
+    if(!isset($_COOKIE["admin"])){
+        header("location:admin.php");
+    }   
     function query(){
         $conn = mysqli_connect("localhost", "root","","topup");
         $rows = mysqli_query($conn, "SELECT * FROM game JOIN pesanan WHERE game.IDItem = pesanan.IDItem");
@@ -73,8 +77,8 @@
                                 <td><?= $row["Email"]; ?></td>
                                 <td><?= $row["Status"]; ?></td>
                                 <td>
-                                    <a href="erase.php?id=<?php echo $row["id"] ?>"><button type=submit name=delete>Hapus</button></a>
-                                    <a href="edit.php?id=<?php echo $row["id"] ?>"><button type=submit name=edit>Edit</button></a>
+                                    <a href="erase.php?id=<?php echo $row["id"] ?>"><button class="btn btn-login" type=submit name=delete>Hapus</button></a>
+                                    <a href="edit.php?id=<?php echo $row["id"] ?>"><button class="btn btn-login" type=submit name=edit>Edit</button></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
