@@ -53,6 +53,41 @@ CREATE TABLE `pesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data untuk tabel `pesanan`
+--
+INSERT INTO `pesanan` (`IDItem`, `Nama`, `Harga`) VALUES
+(1, '86 dm', 19200),
+(2, '172 dm', 38100),
+(3, '257 dm', 57300),
+(4, '344 dm', 76200),
+(5, '429 dm', 95400),
+(6, '514 dm', 114600),
+(7, '716 dm', 153000),
+(8, '1050 dm', 229500),
+(9, '70 dm', 8772),
+(10, '140 dm', 17544),
+(11, '210 dm', 26316),
+(12, '355 dm', 43860),
+(13, '420 dm', 52632),
+(14, '720 dm', 87720),
+(15, '1000 dm', 122808),
+(16, '1450 dm', 177036),
+(17, '60 genesis crystals', 11968),
+(18, 'blessing of the welkin moon', 60048),
+(19, '330 genesis crystals', 60048),
+(20, '1090 genesis crystals', 180036),
+(21, '3880 genesis crystals', 599940),
+(22, '8080 genesis crystals', 1199880),
+(23, 'all pack genesis crystals', 2441722),
+(24, '221 uc', 37721),
+(25, '525 uc', 92828),
+(26, '788 us', 139242),
+(27, '1050 uc', 185655),
+(28, '1375 uc', 232069),
+(29, '1638 uc', 278482),
+(30, '1900 uc', 324896),
+(31, '2163 uc', 371309);
+--
 -- Indexes for dumped tables
 --
 
