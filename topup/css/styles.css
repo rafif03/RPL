@@ -382,12 +382,6 @@ select:disabled {
   display: none !important;
 }
 
-button,
-[type=button],
-[type=reset],
-[type=submit] {
-  -webkit-appearance: button;
-}
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
@@ -442,10 +436,6 @@ legend + * {
   height: auto;
 }
 
-[type=search] {
-  outline-offset: -2px;
-  -webkit-appearance: textfield;
-}
 
 /* rtl:raw:
 [type="tel"],
@@ -463,10 +453,6 @@ legend + * {
   padding: 0;
 }
 
-::file-selector-button {
-  font: inherit;
-  -webkit-appearance: button;
-}
 
 output {
   display: inline-block;
@@ -10845,7 +10831,6 @@ textarea.form-control-lg {
 
 input,
 textarea {
-  -webkit-appearance: none;
   border-radius: 0;
 }
 
@@ -10923,3 +10908,34 @@ label {
 }
 
 
+.admin {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #212529;;
+  border-radius: 5px;
+  width: 400px;
+}
+
+.btn-login{
+  background-color: #4b3273;
+  color: #fff;
+}
+
+.btn-login:hover{
+  background-color: #5b4283;
+}
+
+.form-contol > .edit {
+  width: 200px;
+}
+
+.edit-form{
+  background-color: var(--bs-dark);
+  width: 400px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.edit-form > .row {
+  margin-bottom: 20px;
+}
