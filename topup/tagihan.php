@@ -1,3 +1,21 @@
+<?php
+    ob_start();
+    function query(){
+        $conn = mysqli_connect("localhost", "root","","topup");
+        $ID = $_GET["id"];
+        $rows = mysqli_query($conn, "SELECT * FROM game WHERE id = $ID");
+        return $rows;
+    }
+
+    $rows = mysqli_fetch_array(query());
+
+    $item = item($rows["IDItem"]);
+    function item($id){
+        $conn = mysqli_connect("localhost", "root","","topup");
+        $item = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM pesanan WHERE IDItem = $id"));
+        return $item;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,41 +48,43 @@
         <!-- Header-->
         <header class="bg-body py-5">
             <div class="container px-4 px-lg-5 my-5 edit-form">
-                <div class="row">
-                    <div class="col-4"><h4 class="text-white">Game</h4></div>
-                    <div class="col-6"><h4 class="text-white" style="text-align: right;">placeholder</h4></div>
+                <div class="row justify"><h4 class="text-white text-center">Rincian Pembayaran</h4></div>
+                <br>
+                <div class="row text">
+                    <div class="col-4"><h5 class="text-white">Game</h5></div>
+                    <div class="col-7"><h5 class="text-white" style="text-align: right;"><?= $rows["game"] ?></h5></div>
                 </div>
-                <div class="row">
-                    <div class="col-4"><h4 class="text-white">Nick</h4></div>
-                    <div class="col-6"><h4 class="text-white" style="text-align: right;">placeholder</h4></div>
+                <div class="row text">
+                    <div class="col-4"><h5 class="text-white">Nick</h5></div>
+                    <div class="col-7"><h5 class="text-white" style="text-align: right;"><?= $rows["Nick"] ?></h5></div>
                 </div>
-                <div class="row">
-                    <div class="col-4"><h4 class="text-white">ID</h4></div>
-                    <div class="col-6"><h4 class="text-white" style="text-align: right;">placeholder</h4></div>
+                <div class="row text">
+                    <div class="col-4"><h5 class="text-white">ID</h5></div>
+                    <div class="col-7"><h5 class="text-white" style="text-align: right;"><?= $rows["IDUser"] ?></h5></div>
                 </div>
-                <div class="row">
-                    <div class="col-4"><h4 class="text-white">Server</h4></div>
-                    <div class="col-6"><h4 class="text-white" style="text-align: right;">placeholder</h4></div>
+                <div class="row text">
+                    <div class="col-4"><h5 class="text-white">Server</h5></div>
+                    <div class="col-7"><h5 class="text-white" style="text-align: right;"><?= $rows["Server"] ?></h5></div>
                 </div>
-                <div class="row">
-                    <div class="col-4"><h4 class="text-white">Item</h4></div>
-                    <div class="col-6"><h4 class="text-white" style="text-align: right;">placeholder</h4></div>
+                <div class="row text">
+                    <div class="col-4"><h5 class="text-white">Item</h5></div>
+                    <div class="col-7"><h5 class="text-white" style="text-align: right;"><?= $item["Nama"] ?></h5></div>
                 </div>
-                <div class="row">
-                    <div class="col-4"><h4 class="text-white">Harga</h4></div>
-                    <div class="col-6"><h4 class="text-white" style="text-align: right;">placeholder</h4></div>
+                <div class="row text">
+                    <div class="col-4"><h5 class="text-white">Harga</h5></div>
+                    <div class="col-7"><h5 class="text-white" style="text-align: right;">IDR <?= $item["Harga"] ?></h5></div>
                 </div>
-                <div class="row">
-                    <div class="col-4"><h4 class="text-white">Metode</h4></div>
-                    <div class="col-6"><h4 class="text-white" style="text-align: right;">placeholder</h4></div>
+                <div class="row text">
+                    <div class="col-4"><h5 class="text-white">Metode Bayar</h5></div>
+                    <div class="col-7"><h5 class="text-white" style="text-align: right;"><?= $rows["metode"] ?></h5></div>
                 </div>
-                <div class="row">
-                    <div class="col-4"><h4 class="text-white">Status</h4></div>
-                    <div class="col-6"><h4 class="text-white" style="text-align: right;">placeholder</h4></div>
+                <div class="row text">
+                    <div class="col-4"><h5 class="text-white">Status</h5></div>
+                    <div class="col-7"><h5 class="text-white" style="text-align: right;"><?= $rows["Status"] ?></h5></div>
                 </div>
                 <br>
                 <div class="row">
-                    <a href="index.html"><button class="btn btn-login">Home</button></a>
+                    <a href="index.php"><button class="btn btn-login">Home</button></a>
                 </div>
             </div>
         </section>

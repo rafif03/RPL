@@ -1,3 +1,13 @@
+<?php
+    ob_start();
+    function query(){
+        $conn = mysqli_connect("localhost", "root","","topup");
+        $rows = mysqli_query($conn, "SELECT * FROM game JOIN pesanan WHERE game.IDItem = pesanan.IDItem");
+        return $rows;
+    }
+
+    $rows = query();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -33,24 +43,46 @@
                 <table class="table table-dark">
                     <thead>
                       <tr>
+                        <th>ID</th>
                         <th>Game</th>
                         <th>Nick</th>
-                        <th>ID</th>
+                        <th>ID User</th>
                         <th>Server</th>
                         <th>Item</th>
                         <th>Harga</th>
                         <th>Metode</th>
+                        <th>No HP</th>
+                        <th>Email</th>
                         <th>Status</th> 
                         <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
+                        <?php foreach($rows as $row): ?>
+                            <tr>
+                                <td><?= $row["id"]; ?></td> 
+                                <td><?= $row["game"]; ?></td> 
+                                <td><?= $row["Nick"]; ?></td>   
+                                <td><?= $row["IDUser"]; ?></td> 
+                                <td><?= $row["Server"]; ?></td>
+                                <td><?= $row["Nama"]; ?></td>    
+                                <td><?= $row["Harga"]; ?></td>
+                                <td><?= $row["metode"]; ?></td>   
+                                <td><?= $row["mobile"]; ?></td>
+                                <td><?= $row["Email"]; ?></td>
+                                <td><?= $row["Status"]; ?></td>
+                                <td>
+                                    <a href="erase.php?id=<?php echo $row["id"] ?>"><button type=submit name=delete>Hapus</button></a>
+                                    <a href="edit.php?id=<?php echo $row["id"] ?>"><button type=submit name=edit>Edit</button></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                   </table>
             </div>
         </section>
         <!-- Footer-->
-        <footer class="py-5 bg-dark fixed-bottom">
+        <footer class="py-5 bg-dark">
             <div class="container text-white">
                 <h3 class="m-0 text-white">Vann.store</h3>
                 <h5 class="m-0 text-white">Website top-up terbesar, tercepat dan terpercaya di Indonesia</h5>

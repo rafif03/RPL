@@ -1,3 +1,13 @@
+<?php
+  ob_start();
+  if(isset($_POST["sumbit"])){
+    if($_POST["secret"] == "Rahasia"){
+        header("location:pesanan.php");
+    } else {
+        echo "<script> alert('Salah Wlee'); </script>";
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,14 +40,14 @@
         </nav>
         <section class="py-5">
             <div class="container admin d-flex justify-content-center text-white text-center">
-                <form>
+                <form method="post">
                     <h4>Login Admin</h4>
                     <br>
                     <div class="form-group">
-                        <input type="name" class="form-control" placeholder="Masukkan Kode Rahasia">
+                        <input type="password" name="secret" class="form-control" placeholder="Masukkan Kode Rahasia">
                     </div>
                     <br>
-                    <button class="btn btn-login"type="sumbit">Masuk sebagai Admin</button>
+                    <button class="btn btn-login"type="sumbit"name="sumbit">Masuk sebagai Admin</button>
                 </form>
             </div>
         </section>
