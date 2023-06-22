@@ -1,3 +1,6 @@
+<?php
+  ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,7 +42,7 @@
         <h1 class="text-center text-weight-bold text-white">Top Up Free Fire</h1>
         <!-- Section-->
         <section class="py-5">
-            <form class="pd-form">
+            <form class="pd-form" method="post">
                 <div class="container px-4 px-lg-5 mt-5">
                     <div class="row">
                         <div class="col-1"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/1.png" alt="1"/></div>
@@ -74,7 +77,7 @@
                     <div class="row">
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="9" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/dmff.png"></div>
                                     <div class="card-header text-center"><h4>70 Diamond</h4></div>
@@ -86,7 +89,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="10" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/dmff.png"></div>
                                     <div class="card-header text-center"><h4>140 Diamond</h4></div>
@@ -98,7 +101,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="11" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/dmff.png"></div>
                                     <div class="card-header text-center"><h4>210 Diamond</h4></div>
@@ -110,7 +113,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="12" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/dmff.png"></div>
                                     <div class="card-header text-center"><h4>355 Diamond</h4></div>
@@ -124,7 +127,7 @@
                     <div class="row">
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="13" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/dmff.png"></div>
                                     <div class="card-header text-center"><h4>420 Diamond</h4></div>
@@ -136,7 +139,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="14" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/dmff.png"></div>
                                     <div class="card-header text-center"><h4>720 Diamond</h4></div>
@@ -148,7 +151,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="15" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/dmff.png"></div>
                                     <div class="card-header text-center"><h4>1000 Diamond</h4></div>
@@ -160,7 +163,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="16" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/dmff.png"></div>
                                     <div class="card-header text-center"><h4>1450 Diamond</h4></div>
@@ -268,5 +271,26 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <?php
+        $conn = mysqli_connect("localhost", "root","","topup");
+        if(isset($_POST["submit"])){
+            insert($_POST["submit"]);
+        }
+        function insert($data){
+            $conn = mysqli_connect("localhost", "root","","topup");
+            $Nick = htmlspecialchars($_POST["nick"]);
+            $ID = htmlspecialchars($_POST["ID"]);
+            $Server = htmlspecialchars($_POST["Server"]);
+            $Product = htmlspecialchars($_POST["product"]);
+            $Method = htmlspecialchars($_POST["metode"]);
+            $HP = htmlspecialchars($_POST["HP"]);
+            $Email = htmlspecialchars($_POST["Email"]);
+            $query = "INSERT INTO game(game, nick, IDUser, Server, IDItem, metode, mobile, email, Status) VALUES ('Free Fire', '$Nick', '$ID', '$Server', '$Product', '$Method', '$HP', '$Email', 'Pending')";
+            mysqli_query($conn, $query);
+            $result = mysqli_query($conn, "SELECT id FROM game ORDER BY id DESC LIMIT 1");
+            $row = mysqli_fetch_array($result);
+            $IDPesanan = $row[0];
+            header("location:tagihan.php?id=$IDPesanan");
+        } 
     </body>
 </html>
