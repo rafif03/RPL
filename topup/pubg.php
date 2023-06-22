@@ -1,3 +1,6 @@
+<?php
+  ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,13 +42,13 @@
         <h1 class="text-center text-weight-bold text-white">Top Up PUBG Mobile</h1>
         <!-- Section-->
         <section class="py-5">
-            <form class="pd-form">
+            <form class="pd-form" method="post">
                 <div class="container px-4 px-lg-5 mt-5">
                     <div class="row">
                         <div class="col-1"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/1.png" alt="1"/></div>
                         <div class="col-8"> 
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Masukkan Nickname">
+                                <input type="text" class="form-control" name="nick" placeholder="Masukkan Nickname" required>
                               </div>
                         </div>
                     </div>
@@ -54,17 +57,18 @@
                         <div class="col-1"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/2.png" alt="2"/></div>
                         <div class="col-6"> 
                             <div class="form-group">
-                                <input type="name" class="form-control" placeholder="Masukkan ID">
+                                <input type="name" class="form-control" name="ID" placeholder="Masukkan ID" required>
                               </div>
                         </div>
+                    </div>
+                    <br>
                     <div class="row">
                         <div class="col-1"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/3.png" alt="3"/></div>
                         <div class="col-6"> 
                             <div class="form-group">
-                                <input type="name" class="form-control" placeholder="Masukkan Server">
+                                <input type="name" class="form-control" name="Server" placeholder="Masukkan Server">
                               </div>
                         </div>
-                    </div>
                     </div>
                     <br>
                     <div class="row">
@@ -74,7 +78,7 @@
                     <div class="row">
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="24" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/uc.png"></div>
                                     <div class="card-header text-center"><h4>221 UC</h4></div>
@@ -86,7 +90,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="25" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/uc.png"></div>
                                     <div class="card-header text-center"><h4>525 UC</h4></div>
@@ -98,7 +102,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="26" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/uc.png"></div>
                                     <div class="card-header text-center"><h4>788 UC</h4></div>
@@ -110,7 +114,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="27" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/uc.png"></div>
                                     <div class="card-header text-center"><h4>1050 UC</h4></div>
@@ -124,7 +128,7 @@
                     <div class="row">
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="28" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/uc.png"></div>
                                     <div class="card-header text-center"><h4>1375 UC</h4></div>
@@ -136,7 +140,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="29" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/uc.png"></div>
                                     <div class="card-header text-center"><h4>1638 UC</h4></div>
@@ -148,7 +152,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="30" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/uc.png"></div>
                                     <div class="card-header text-center"><h4>1900 UC</h4></div>
@@ -160,7 +164,7 @@
                         </div>
                         <div class="col">
                             <label>
-                                <input type="radio" name="product" class="card-input-element" />
+                                <input type="radio" value="31" name="product" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-img-top"><img width="186" height="180" src="assets/uc.png"></div>
                                     <div class="card-header text-center"><h4>2163 UC</h4></div>
@@ -180,7 +184,7 @@
                         <div class="container">
                             <div class="row">
                                 <label>
-                                  <input type="radio" name="metode" class="card-input-element" />
+                                  <input type="radio" value="ShopeePay" name="metode" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-header">
                                         <div class="row">
@@ -193,7 +197,7 @@
                             </div>
                             <div class="row">
                                 <label>
-                                    <input type="radio" name="metode" class="card-input-element" />
+                                    <input type="radio" value="GoPay" name="metode" class="card-input-element" />
                                       <div class="card card-input">
                                         <div class="card-header">
                                             <div class="row">
@@ -206,7 +210,7 @@
                             </div>
                             <div class="row">
                                 <label>
-                                  <input type="radio" name="metode" class="card-input-element" />
+                                  <input type="radio" value="Dana" name="metode" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-header">
                                         <div class="row">
@@ -219,7 +223,7 @@
                             </div>
                             <div class="row">
                                 <label>
-                                  <input type="radio" name="metode" class="card-input-element" />
+                                  <input type="radio" value="BCA" name="metode" class="card-input-element" />
                                   <div class="card card-input">
                                     <div class="card-header">
                                         <div class="row">
@@ -234,18 +238,18 @@
                         <div class="col-1"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/6.png" alt="6"/></div>
                         <div class="col-4"> 
                             <div class="form-group">
-                                <input type="name" class="form-control" placeholder="Masukkan Nomor HP">
+                                <input type="name" name="HP" class="form-control" placeholder="Masukkan Nomor HP" required>
                               </div>
                         </div>
                         <div class="col-4"> 
                             <div class="form-group">
-                                <input type="name" class="form-control" placeholder="Masukkan Email">
+                                <input type="name" name="Email" class="form-control" placeholder="Masukkan Email" required>
                               </div>
                         </div>
                     </div>
                     <br><br>
                     <div class="row">
-                        <button class="btn btn-light">Buat Pesanan!</button>
+                        <button class="btn btn-light" type="submit" name="submit">Buat Pesanan!</button>
                     </div>
                 </div>
             </form>
@@ -270,3 +274,26 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+<?php
+$conn = mysqli_connect("localhost", "root","","topup");
+
+  if(isset($_POST["submit"])){
+    insert($_POST["submit"]);
+  }
+function insert($data){
+    $conn = mysqli_connect("localhost", "root","","topup");
+    $Nick = htmlspecialchars($_POST["nick"]);
+    $ID = htmlspecialchars($_POST["ID"]);
+    $Server = htmlspecialchars($_POST["Server"]);
+    $Product = htmlspecialchars($_POST["product"]);
+    $Method = htmlspecialchars($_POST["metode"]);
+    $HP = htmlspecialchars($_POST["HP"]);
+    $Email = htmlspecialchars($_POST["Email"]);
+    $query = "INSERT INTO game(game, nick, IDUser, Server, IDItem, metode, mobile, email, Status) VALUES ('Mobile Legends', '$Nick', '$ID', '$Server', '$Product', '$Method', '$HP', '$Email', 'Pending')";
+    mysqli_query($conn, $query);
+    $result = mysqli_query($conn, "SELECT id FROM game ORDER BY id DESC LIMIT 1");
+    $row = mysqli_fetch_array($result);
+    $IDPesanan = $row[0];
+    header("location:tagihan.php?id=$IDPesanan");
+  } 
+?>

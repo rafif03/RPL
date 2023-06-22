@@ -21,9 +21,9 @@
                 <button class="navbar-toggler btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-dark navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="support.html">Support</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="faq.html">FAQ's</a></li>
+                        <li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="support.php">Support</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="faq.php">FAQ's</a></li>
                     </ul>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="ml.html">Beli</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="ml.php">Beli</a></div>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="ff.html">Beli</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="ff.php">Beli</a></div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="gi.html">Beli</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="gi.php">Beli</a></div>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="pubg.html">Beli</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="pubg.php">Beli</a></div>
                             </div>
                         </div>
                     </div>
